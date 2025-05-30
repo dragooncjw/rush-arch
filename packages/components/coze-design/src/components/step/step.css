@@ -1,0 +1,12 @@
+/**
+ *  Copyright (c) 2025 coze-dev
+ *  SPDX-License-Identifier: MIT
+ **/
+
+.coz-step-item {
+  &.semi-steps-item.coz-step-item-without-desc {
+    .semi-steps-item-title {
+      @apply pb-0;
+    }
+  }
+}

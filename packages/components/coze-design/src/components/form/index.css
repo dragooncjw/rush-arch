@@ -1,0 +1,10 @@
+/**
+ *  Copyright (c) 2025 coze-dev
+ *  SPDX-License-Identifier: MIT
+ **/
+
+.coz-form-field {
+  .semi-form-field-error-message {
+    @apply coz-fg-hglt-red;
+  }
+}

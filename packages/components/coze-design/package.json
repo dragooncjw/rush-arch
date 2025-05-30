@@ -1,0 +1,213 @@
+{
+  "name": "@coze/coze-design",
+  "version": "0.0.1",
+  "description": "coze design system 2.0",
+  "license": "ISC",
+  "author": "289056872@qq.com",
+  "maintainers": [],
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./icons": "./src/components/icon/index.ts",
+    "./illustrations": "./src/components/illustration/index.ts",
+    "./colors": "./src/components/colors/tokens/index.ts",
+    "./locales": "./src/locales/index.ts",
+    "./package.json": "./package.json"
+  },
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "typesVersions": {
+    "*": {
+      "colors": [
+        "./src/components/colors/tokens/index.ts"
+      ],
+      "icons": [
+        "./src/components/icon/index.ts"
+      ],
+      "illustrations": [
+        "./src/components/illustration/index.ts"
+      ],
+      "locales": [
+        "./src/locales/index.ts"
+      ],
+      "package.json": [
+        "./package.json"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && rslib build",
+    "build:storybook": "NODE_ENV=storybook storybook build",
+    "build:types": "tsc -b tsconfig.build.json",
+    "create": "plop --plopfile ./plopfile.js",
+    "dev": "NODE_ENV=development storybook dev -p 6002",
+    "lint": "eslint ./ --cache",
+    "tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/index.css --minify",
+    "test": "vitest --run --passWithNoTests",
+    "test:cov": "npm run test -- --coverage"
+  },
+  "dependencies": {
+    "@coze-arch/arco-icon": "workspace:*",
+    "@coze-arch/arco-illustration": "workspace:*",
+    "@coze-arch/semi-theme-hand01": "workspace:*",
+    "@douyinfe/semi-ui": "~2.72.3",
+    "ahooks": "^3.7.8",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^1.2.1",
+    "date-fns": "^2.23.0",
+    "lodash-es": "^4.17.21",
+    "react-helmet": "^6.1.0",
+    "react-markdown": "^8.0.3",
+    "tailwind-merge": "^1.13.2",
+    "ui-box": "^5.4.1"
+  },
+  "devDependencies": {
+    "@coze-arch/eslint-config": "workspace:*",
+    "@coze-arch/postcss-config": "workspace:*",
+    "@coze-arch/stylelint-config": "workspace:*",
+    "@coze-arch/tailwind-config": "workspace:*",
+    "@coze-arch/ts-config": "workspace:*",
+    "@coze-arch/vitest-config": "workspace:*",
+    "@csstools/postcss-is-pseudo-class": "^4.0.5",
+    "@douyinfe/semi-webpack-plugin": "2.61.0",
+    "@mdx-js/react": "^3.0.1",
+    "@rsbuild/core": "1.1.13",
+    "@rsbuild/plugin-react": "^1.1.1",
+    "@rslib/core": "^0.5.5",
+    "@storybook/addon-docs": "^7.6.7",
+    "@storybook/addon-essentials": "^7.6.7",
+    "@storybook/addon-interactions": "^7.6.7",
+    "@storybook/addon-links": "^7.6.7",
+    "@storybook/addon-mdx-gfm": "^7.6.14",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/addon-styling-webpack": "^0.0.6",
+    "@storybook/blocks": "^7.6.7",
+    "@storybook/manager-api": "^7.6.7",
+    "@storybook/preview-api": "^7.6.7",
+    "@storybook/react": "^7.6.7",
+    "@storybook/react-webpack5": "^7.6.7",
+    "@storybook/test": "^7.6.7",
+    "@storybook/testing-library": "^0.2.2",
+    "@storybook/theming": "^7.6.7",
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/forms": "^0.5.7",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "~14.5.2",
+    "@types/jest": "~29.2.4",
+    "@types/lodash-es": "^4.17.10",
+    "@types/node": "^22.13.13",
+    "@types/react": "18.2.37",
+    "@types/react-dom": "18.2.15",
+    "@types/react-helmet": "^6.1.11",
+    "@vitest/coverage-v8": "^3.0.9",
+    "autoprefixer": "^10.4.16",
+    "babel-loader": "~9.1.0",
+    "css-loader": "^6.10.0",
+    "less": "^4.2.0",
+    "less-loader": "~11.1.3",
+    "mini-css-extract-plugin": "^2.8.1",
+    "plop": "~4.0.1",
+    "postcss": "^8.4.32",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^7.3.3",
+    "postcss-nesting": "^12.1.0",
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "remark-gfm": "^3.0.1",
+    "rimraf": "~3.0.2",
+    "sass-loader": "^14.1.0",
+    "storybook": "^7.6.7",
+    "storybook-dark-mode": "^3.0.3",
+    "style-loader": "^3.3.4",
+    "stylelint": "^15.11.0",
+    "tailwindcss": "~3.3.3",
+    "ts-loader": "^9.5.1",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "typescript": "^5.8.2",
+    "url-loader": "^4.1.1",
+    "vitest": "^3.0.9",
+    "webpack": "~5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  },
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "cozePublishConfig": {
+    "sideEffects": [
+      "./dist/esm/index.css",
+      "./dist/cjs/index.css"
+    ],
+    "exports": {
+      ".": {
+        "import": "./dist/esm/index.mjs",
+        "require": "./dist/cjs/index.js",
+        "types": "./dist/types/index.d.ts"
+      },
+      "./icons": {
+        "import": "./dist/esm/icons.mjs",
+        "require": "./dist/cjs/icons.js",
+        "types": "./dist/types/icons.d.ts"
+      },
+      "./illustrations": {
+        "import": "./dist/esm/illustrations.mjs",
+        "require": "./dist/cjs/illustrations.js",
+        "types": "./dist/types/illustrations.d.ts"
+      },
+      "./colors": {
+        "import": "./dist/esm/components/colors/tokens/index.mjs",
+        "require": "./dist/cjs/components/colors/tokens/index.js",
+        "types": "./dist/types/components/colors/tokens/index.d.ts"
+      },
+      "./locales": {
+        "import": "./dist/esm/locales/index.mjs",
+        "require": "./dist/cjs/locales/index.js",
+        "types": "./dist/types/locales/index.d.ts"
+      },
+      "./index.css": "./dist/esm/index.css"
+    },
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.mjs",
+    "types": "dist/types/index.d.ts",
+    "typesVersions": {
+      "*": {
+        ".": [
+          "./dist/types/index.d.ts"
+        ],
+        "icons": [
+          "./dist/types/icons.d.ts"
+        ],
+        "illustrations": [
+          "./dist/types/illustrations.d.ts"
+        ],
+        "colors": [
+          "./dist/types/components/colors/tokens/index.d.ts"
+        ],
+        "locales": [
+          "./dist/types/locales/index.d.ts"
+        ]
+      }
+    },
+    "files": [
+      "dist",
+      "README.md",
+      "package.json",
+      "!**/*.tsbuildinfo"
+    ]
+  },
+  "readme": "README.md"
+}
