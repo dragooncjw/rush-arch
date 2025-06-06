@@ -506,7 +506,7 @@
       "tags": ["level-3"]
     },
     {
-      "packageName": "@coze/coze-design",
+      "packageName": "@coze-arch/coze-design",
       "projectFolder": "packages/components/coze-design",
       "shouldPublish": true,
       "tags": ["level-3"]

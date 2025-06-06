@@ -19,10 +19,10 @@ import * as AvatarStories from './stories/avatar.stories';
 - [Types](#types)
 
 ## 组件引入
-可从 `@coze/coze-design` 中引入 `COZAvatar` 组件，参考如下：
+可从 `@coze-arch/coze-design` 中引入 `COZAvatar` 组件，参考如下：
 
 ```tsx
-import { COZAvatar, Avatar } from '@coze/coze-design';
+import { COZAvatar, Avatar } from '@coze-arch/coze-design';
 ```
 
 > 注：这里的2.0组件叫 `COZAvatar`， 是因为coze-design同时也透传了semi的原生`Avatar`组件，由于早期的`Avatar`组件使用较广泛并且coze-design的`COZAvatar`组件默认样式和semi的`Avatar`存在部分差异，所以在存量业务未替换前先保持两者同时可用，推荐新需求应该优先用`COZAvatar`。
@@ -40,7 +40,7 @@ import { COZAvatar, Avatar } from '@coze/coze-design';
 <Story of={AvatarStories.Size} />
 
 ```tsx
-import { COZAvatar } from '@coze/coze-design';
+import { COZAvatar } from '@coze-arch/coze-design';
 
 <Avatar size="mini">COZE</Avatar>
 <Avatar size="small">COZE</Avatar>
@@ -56,7 +56,7 @@ Avatar 支持 onClick、onMouseEnter、onMouseLeave。其中 hover 状态下可�
 <Story of={AvatarStories.HoverMask} />
 
 ```tsx
-import { COZAvatar } from '@coze/coze-design';
+import { COZAvatar } from '@coze-arch/coze-design';
 
 <Avatar
   hoverMask={true}
@@ -73,7 +73,7 @@ Avatar 支持8种颜色，包括：`blue`, `cyan`, `green`, `yellow`, `purple`, 
 <Story of={AvatarStories.Color} />
 
 ```tsx
-import { COZAvatar } from '@coze/coze-design';
+import { COZAvatar } from '@coze-arch/coze-design';
 
 <Avatar size="blue">COZE</Avatar>
 <Avatar size="red">COZE</Avatar>
@@ -95,7 +95,7 @@ Avatar 支持四种类型，包括：`bot`, `platform`, `person`, `team`，对�
 <Story of={AvatarStories.Type} />
 
 ```tsx
-import { COZAvatar } from '@coze/coze-design';
+import { COZAvatar } from '@coze-arch/coze-design';
 
 <Avatar type="person">COZE</Avatar>
 <Avatar size="team">COZE</Avatar>
@@ -108,7 +108,7 @@ import { COZAvatar } from '@coze/coze-design';
 <Story of={AvatarStories.Group} />
 
 ```tsx
-import { COZAvatar } from '@coze/coze-design';
+import { COZAvatar } from '@coze-arch/coze-design';
 
 <AvatarGroup overlapFrom={'end'} size="medium" maxCount={3}>
   <Avatar color="red" alt="Lisa LeBlanc">LL</Avatar>

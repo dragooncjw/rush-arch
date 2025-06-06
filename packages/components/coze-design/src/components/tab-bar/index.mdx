@@ -17,10 +17,10 @@ import * as TabBarStories from './stories/tab-bar.stories';
 - [Types](#types)
 
 ## 组件引入
-可从 `@coze/coze-design` 中引入 `TabBar` 组件，参考如下：
+可从 `@coze-arch/coze-design` 中引入 `TabBar` 组件，参考如下：
 
 ```tsx
-import { TabBar } from '@coze/coze-design';
+import { TabBar } from '@coze-arch/coze-design';
 
 const { TabPanel } = Tabar;
 ```
@@ -41,7 +41,7 @@ const { TabPanel } = Tabar;
 <Story of={TabBarStories.Tab} />
 
 ```tsx
-import { TabBar, Badge } from '@coze/coze-design';
+import { TabBar, Badge } from '@coze-arch/coze-design';
 const { TabPanel } = TabBar;
 
 <TabBar mode='tab'>
@@ -79,7 +79,7 @@ const { TabPanel } = TabBar;
 
 ```tsx
 import { useState } from 'react';
-import { TabBar } from '@coze/coze-design';
+import { TabBar } from '@coze-arch/coze-design';
 const { TabPanel } = TabBar;
 
 const [tabKey, setTabKey] = useState('效率工具');
@@ -117,7 +117,7 @@ const handleOnClick = (key: string) => {
 <Story of={TabBarStories.Type} />
 
 ```tsx
-import { TabBar } from '@coze/coze-design';
+import { TabBar } from '@coze-arch/coze-design';
 const { TabPanel } = TabBar;
 
 <TabBar align="left" type='text'>
@@ -148,7 +148,7 @@ const { TabPanel } = TabBar;
 <Story of={TabBarStories.Align} />
 
 ```tsx
-import { TabBar } from '@coze/coze-design';
+import { TabBar } from '@coze-arch/coze-design';
 const { TabPanel } = TabBar;
 
 <TabBar align="left" type='text'>

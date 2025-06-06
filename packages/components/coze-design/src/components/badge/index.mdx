@@ -20,10 +20,10 @@ import * as BadgeStories from './stories/badge.stories';
 
 ## 组件引入
 
-可从 `@coze/coze-design` 中引入 `Badge` 组件，参考如下：
+可从 `@coze-arch/coze-design` 中引入 `Badge` 组件，参考如下：
 
 ```tsx
-import { Badge } from '@coze/coze-design';
+import { Badge } from '@coze-arch/coze-design';
 ```
 
 ## 交互预览
@@ -49,7 +49,7 @@ NOTE：用户可以通过countStyle自己调整组件位置以满足业务要求
 <Story of={BadgeStories.Type} />
 
 ```tsx
-import { Badge } from '@coze/coze-design';
+import { Badge } from '@coze-arch/coze-design';
 
 <Badge>
     <Avatar color="green" type="person" size="lg" count="666">BD</Avatar>
@@ -104,7 +104,7 @@ import { Badge } from '@coze/coze-design';
 <Story of={BadgeStories.Position} />
 
 ```tsx
-import { Badge } from '@coze/coze-design';
+import { Badge } from '@coze-arch/coze-design';
 
 <Badge countStyle={{ right: 8, top: 6 }} position="rightTop">
   <Avatar color="green" type="person" size="lg">
@@ -126,7 +126,7 @@ import { Badge } from '@coze/coze-design';
 <Story of={BadgeStories.Icon} />
 
 ```tsx
-import { Badge } from '@coze/coze-design';
+import { Badge } from '@coze-arch/coze-design';
 
 <Badge
   count={<IconCozFireFill className="coz-fg-hglt-red text-20px" />}
@@ -145,7 +145,7 @@ import { Badge } from '@coze/coze-design';
 <Story of={BadgeStories.Custom} />
 
 ```tsx
-import { Badge } from '@coze/coze-design';
+import { Badge } from '@coze-arch/coze-design';
 
 <div>
   <Badge />

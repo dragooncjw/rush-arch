@@ -1,4 +1,4 @@
-# @coze/coze-design
+# @coze-arch/coze-design
 
 > Project template for react component with storybook.
 

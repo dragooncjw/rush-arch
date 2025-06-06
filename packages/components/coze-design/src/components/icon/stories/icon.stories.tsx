@@ -162,7 +162,7 @@ const StateTemplate = args => {
             <div>
               使用方式：
               <br />
-              {"import { Iconxxx } from '@coze/coze-design/icons';"}
+              {"import { Iconxxx } from '@coze-arch/coze-design/icons';"}
               <br />
               {'<Iconxxx className="text-xxl text-red" />'}
               <br />
@@ -170,7 +170,7 @@ const StateTemplate = args => {
               <br />
             </div>
             <div>
-              如果 iconBox 有新增 icon，但从 @coze/coze-design/icons
+              如果 iconBox 有新增 icon，但从 @coze-arch/coze-design/icons
               包里找不到。
               <br />
               需要手动更新 @coze-arch/arco-icon 版本。
