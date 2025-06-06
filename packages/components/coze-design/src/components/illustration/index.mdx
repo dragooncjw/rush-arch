@@ -15,10 +15,10 @@ import * as IllustrationStories from './stories/illustration.stories';
 - [Props](#props)
 
 ## 组件引入
-可从 `@coze/coze-design/illustrations` 中引入对应所需插画，因为插画多会自带色彩，所以如果需要适配暗黑模式，建议一种插画样式可以同时提两套设计，深色插图用Dark区分，尺寸需要保持一致，参考如下：
+可从 `@coze-arch/coze-design/illustrations` 中引入对应所需插画，因为插画多会自带色彩，所以如果需要适配暗黑模式，建议一种插画样式可以同时提两套设计，深色插图用Dark区分，尺寸需要保持一致，参考如下：
 
 ```tsx
-import { IconCozIllusAdd, IconCozIllusAddDark } from '@coze/coze-design/illustrations';
+import { IconCozIllusAdd, IconCozIllusAddDark } from '@coze-arch/coze-design/illustrations';
 ```
 
 ## 交互预览
@@ -32,7 +32,7 @@ import { IconCozIllusAdd, IconCozIllusAddDark } from '@coze/coze-design/illustra
 <Story of={IllustrationStories.Size} />
 
 ```tsx
-import { IconCozIllusDone, IconCozIllusAdd, IconCozIllus404 } from '@coze/coze-design/illustrations';
+import { IconCozIllusDone, IconCozIllusAdd, IconCozIllus404 } from '@coze-arch/coze-design/illustrations';
 
 <>
   <IconCozIllusDone width="120" height="120"/>
@@ -46,8 +46,8 @@ import { IconCozIllusDone, IconCozIllusAdd, IconCozIllus404 } from '@coze/coze-d
 <Story of={IllustrationStories.Empty} />
 
 ```tsx
-import { EmptyState } from '@coze/coze-design';
-import { IconCozIllusAdd, IconCozIllusAddDark } from '@coze/coze-design/illustrations';
+import { EmptyState } from '@coze-arch/coze-design';
+import { IconCozIllusAdd, IconCozIllusAddDark } from '@coze-arch/coze-design/illustrations';
 
  <EmptyState
     size="full_screen"

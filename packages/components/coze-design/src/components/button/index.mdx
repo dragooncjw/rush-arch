@@ -33,10 +33,10 @@ import * as ButtonStories from './stories/button.stories';
 
 ## 组件引入
 
-可从 `@coze/coze-design` 中引入 `Button` 组件，参考如下：
+可从 `@coze-arch/coze-design` 中引入 `Button` 组件，参考如下：
 
 ```tsx
-import { Button } from '@coze/coze-design';
+import { Button } from '@coze-arch/coze-design';
 ```
 
 ## 交互预览
@@ -66,7 +66,7 @@ import {
   LoadingButton,
   AIButton,
   SplitButton,
-} from '@coze/coze-design';
+} from '@coze-arch/coze-design';
 
 <View>
   <IconButton />
@@ -84,7 +84,7 @@ import {
 <Story of={ButtonStories.Colors} />
 
 ```tsx
-import { Button } from '@coze/coze-design';
+import { Button } from '@coze-arch/coze-design';
 
 <View>
   <Button color="hgltplus">hgltplus</Button>
@@ -103,7 +103,7 @@ import { Button } from '@coze/coze-design';
 <Story of={ButtonStories.WithAI} />
 
 ```tsx
-import { AIButton } from '@coze/coze-design';
+import { AIButton } from '@coze-arch/coze-design';
 
 <View>
   <AIButton color="hgltplus">hgltplus</AIButton>
@@ -134,7 +134,7 @@ import { AIButton } from '@coze/coze-design';
 - **mini** ：`height: 16px` | `min-width: auto` | `padding: 0px 5px` | `border-radius: 4px`
 
 ```tsx
-import { Button } from '@coze/coze-design';
+import { Button } from '@coze-arch/coze-design';
 
 <View>
   <Button size="large">large</Button>
@@ -154,7 +154,7 @@ import { Button } from '@coze/coze-design';
 - **iconPosition** ：支持左向 `iconPosition="left"` 和 右向`iconPosition="right"`
 
 ```tsx
-import { Button } from '@coze/coze-design';
+import { Button } from '@coze-arch/coze-design';
 import { IconCozPeopleFill } from '@/components/icon';
 
 <View>
@@ -177,7 +177,7 @@ import { IconCozPeopleFill } from '@/components/icon';
 - **loading** ：默认态`loading={false}`，可切换至加载中 `loading={true}`。
 
 ```tsx
-import { Button } from '@coze/coze-design';
+import { Button } from '@coze-arch/coze-design';
 
 <View>
   <Button size="large" loading={true}>
@@ -204,7 +204,7 @@ import { Button } from '@coze/coze-design';
 - **disabled** ：默认态`disabled={false}`，可切换至加载中 `disabled={true}`。
 
 ```tsx
-import { Button } from '@coze/coze-design';
+import { Button } from '@coze-arch/coze-design';
 
 <View>
   <Button color="hgltplus" disabled={true}>
@@ -240,7 +240,7 @@ import { Button } from '@coze/coze-design';
 - **onClick** ：对应HTMLDivElement中的标准事件。
 
 ```tsx
-import { Button } from '@coze/coze-design';
+import { Button } from '@coze-arch/coze-design';
 import { useState } from 'react';
 
 const [isOpen, setIsOpen] = useState(false);

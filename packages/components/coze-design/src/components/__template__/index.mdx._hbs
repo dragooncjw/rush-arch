@@ -15,8 +15,8 @@ import * as {{pascalName}}Stories from './stories/{{name}}.stories';
 - [Types](#types)
 
 ## 组件引入
-可从 `@coze/coze-design` 中引入 `{{pascalName}}` 组件，参考如下：
+可从 `@coze-arch/coze-design` 中引入 `{{pascalName}}` 组件，参考如下：
 
 ```tsx
-import { {{pascalName}} } from '@coze/coze-design';
+import { {{pascalName}} } from '@coze-arch/coze-design';
 ```

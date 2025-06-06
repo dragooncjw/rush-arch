@@ -18,10 +18,10 @@ import { CozInputNumber } from './input-number-new';
 
 ## 组件引入
 
-可从 `@coze/coze-design` 中引入 `CozInputNumber` 组件，参考如下：
+可从 `@coze-arch/coze-design` 中引入 `CozInputNumber` 组件，参考如下：
 
 ```tsx
-import { CozInputNumber, InputNumber } from '@coze/coze-design';
+import { CozInputNumber, InputNumber } from '@coze-arch/coze-design';
 ```
 
 **注意，当前存在两个版本的 InputNUmber，新接入业务应使用 CozInputNumber，存量业务按需切换至 CozInputNumber，旧版本 InputNumber 后续不再维护，**
@@ -41,7 +41,7 @@ import { CozInputNumber, InputNumber } from '@coze/coze-design';
 <Story of={InputNumberStories.Size} />
 
 ```tsx
-import { CozInputNumber } from '@coze/coze-design';
+import { CozInputNumber } from '@coze-arch/coze-design';
 
 <CozInputNumber size='default' />
 <CozInputNumber size='small' />
@@ -55,7 +55,7 @@ import { CozInputNumber } from '@coze/coze-design';
 <CozInputNumber error={true} />
 
 ```tsx
-import { CozInputNumber } from '@coze/coze-design';
+import { CozInputNumber } from '@coze-arch/coze-design';
 
 <CozInputNumber error={true} />;
 ```
@@ -67,7 +67,7 @@ import { CozInputNumber } from '@coze/coze-design';
 <CozInputNumber disabled={true} value={10} />
 
 ```tsx
-import { CozInputNumber } from '@coze/coze-design';
+import { CozInputNumber } from '@coze-arch/coze-design';
 
 <CozInputNumber disabled={true} value={10} />;
 ```
