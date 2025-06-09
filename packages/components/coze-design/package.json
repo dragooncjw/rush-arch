@@ -159,13 +159,13 @@
         "types": "./dist/types/index.d.ts"
       },
       "./icons": {
-        "import": "./dist/esm/icons.mjs",
-        "require": "./dist/cjs/icons.js",
+        "import": "./dist/esm/components/icon/index.mjs",
+        "require": "./dist/cjs/components/icon/index.js",
         "types": "./dist/types/components/icon/index.d.ts"
       },
       "./illustrations": {
-        "import": "./dist/esm/illustrations.mjs",
-        "require": "./dist/cjs/illustrations.js",
+        "import": "./dist/esm/components/illustration/index.mjs",
+        "require": "./dist/cjs/components/illustration/index.js",
         "types": "./dist/types/components/illustration/index.d.ts"
       },
       "./colors": {
