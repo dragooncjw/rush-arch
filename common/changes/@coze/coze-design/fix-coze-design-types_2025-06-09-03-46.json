@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@coze/coze-design",
+      "comment": "coze-design types",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@coze/coze-design",
+  "email": "chenjiawei.inizio@bytedance.com"
+}
