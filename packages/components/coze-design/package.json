@@ -178,7 +178,8 @@
         "require": "./dist/cjs/locales/index.js",
         "types": "./dist/types/locales/index.d.ts"
       },
-      "./index.css": "./dist/esm/index.css"
+      "./index.css": "./dist/esm/index.css",
+      "./types": "./dist/types/index.d.ts"
     },
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.mjs",
@@ -199,6 +200,9 @@
         ],
         "locales": [
           "./dist/types/locales/index.d.ts"
+        ],
+        "types": [
+          "./dist/types/index.d.ts"
         ]
       }
     },
