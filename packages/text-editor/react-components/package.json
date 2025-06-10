@@ -19,8 +19,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "lint": "eslint && tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "lint": "eslint && tsc --noEmit"
   },
   "dependencies": {
     "@codemirror/language": "^6.10.1",
@@ -58,6 +57,10 @@
     "@coze-editor/react": "workspace:*",
     "react": "~18.2.0",
     "react-dom": "~18.2.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "test:main": "./src/index.ts"
 }

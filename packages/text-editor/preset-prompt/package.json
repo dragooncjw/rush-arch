@@ -20,8 +20,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "vite --force",
-    "lint": "eslint && tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "lint": "eslint && tsc --noEmit"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.18.0",
@@ -48,6 +47,10 @@
   "peerDependencies": {
     "@codemirror/state": "^6.4.1",
     "@codemirror/view": "^6.26.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "test:main": "./src/index.ts"
 }

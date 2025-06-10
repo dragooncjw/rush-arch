@@ -14,8 +14,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "lint": "eslint && tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "lint": "eslint && tsc --noEmit"
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.1",
@@ -47,6 +46,10 @@
     "@codemirror/view": "^6.26.1",
     "@coze-editor/code-language-shared": "workspace:*",
     "typescript": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "test:main": "./src/index.ts"
 }

@@ -19,8 +19,7 @@
   "scripts": {
     "build": "lezer-generator src/jinja2.grammar -o src/index.js",
     "jinja:test": "npm run build & npx tsx src/test.ts",
-    "lint": "eslint",
-    "prepublishOnly": "npm run build"
+    "lint": "eslint"
   },
   "dependencies": {
     "@lezer/highlight": "~1.2.0",
@@ -34,5 +33,9 @@
     "@types/node": "^22",
     "eslint": "9.14.0",
     "typescript": "^5.8.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

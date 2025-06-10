@@ -20,8 +20,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "vite --force",
-    "lint": "eslint && tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "lint": "eslint && tsc --noEmit"
   },
   "dependencies": {
     "@codemirror/merge": "^6.10.0"
@@ -49,5 +48,9 @@
     "react-dom": "~18.2.0"
   },
   "packageManager": "pnpm@9.15.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "test:main": "./src/index.ts"
 }
