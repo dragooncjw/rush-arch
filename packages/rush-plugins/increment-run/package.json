@@ -17,7 +17,7 @@
     "rush-plugin-manifest.json"
   ],
   "scripts": {
-    "build": "exit 0",
+    "build": "rollup -c",
     "lint": "eslint ./ --cache",
     "test": "vitest --run --passWithNoTests",
     "test:cov": "npm run test -- --coverage"
@@ -49,5 +49,10 @@
   "peerDependencies": {
     "commander": "^13.1.0",
     "stylelint": "^15.11.0"
+  },
+  "cozePublishConfig": {
+    "bin": {
+      "rush-increment-run": "./lib/index.js"
+    }
   }
 }
