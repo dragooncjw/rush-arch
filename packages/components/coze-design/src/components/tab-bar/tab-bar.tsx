@@ -39,6 +39,7 @@ export const Tabs = forwardRef<SemiTabs, TabsTopProps>((props, ref) => {
     mode,
     align,
     renderTabBar,
+    customTabBarProps,
     tabPaneMotion,
     ...restProps
   } = mergeProps(props, defaultProps);
@@ -49,7 +50,7 @@ export const Tabs = forwardRef<SemiTabs, TabsTopProps>((props, ref) => {
     DefaultTabBar,
   ) => (
     <div className={`coz-tab-bar-${tabType}`}>
-      <DefaultTabBar {...tabBarProps} />
+      <DefaultTabBar {...tabBarProps} {...customTabBarProps} />
     </div>
   );
 

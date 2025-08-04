@@ -17,6 +17,7 @@ export interface TabsTopProps
   mode?: 'tab' | 'select';
   type?: TabType;
   align?: 'left' | 'center' | 'right';
+  customTabBarProps?: SemiTabBarProps;
 }
 
 export interface TabsBarProps
