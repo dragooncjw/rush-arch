@@ -164,8 +164,8 @@ const semanticMiddleground = {
   'coz-mg': 'colors.background.4',
   'coz-mg-mask': 'colors.mask.5',
   'coz-mg-table-fixed-hovered': 'colors.background.0',
-  'coz-mg-card-pressed': 'colors.background.3',
-  'coz-mg-card-hovered': 'colors.background.3',
+  'coz-mg-card-pressed': 'colors.background.1',
+  'coz-mg-card-hovered': 'colors.background.2',
   'coz-mg-card': 'colors.background.3',
   /** brand */
   'coz-mg-color-plus-brand': 'colors.brand.50',
