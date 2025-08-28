@@ -11,8 +11,6 @@ import {
 } from 'vscode-languageserver-types';
 import {
   type CompletionEntryDetails,
-  DiagnosticCategory,
-  displayPartsToString,
   type FormatCodeSettings,
 } from 'typescript';
 import mitt from 'mitt';
@@ -29,8 +27,9 @@ import type {
   TransactionSpec,
 } from '@codemirror/state';
 
-import { tagToString } from './utils';
+import { displayPartsToString, tagToString } from './utils';
 import type { InitializeOptions, ITypeScriptWorker } from './types';
+import { DiagnosticCategory } from './ts-enums';
 import { asCompletionItemKind } from './as';
 
 function isDiagnostic(v: unknown): v is Diagnostic {

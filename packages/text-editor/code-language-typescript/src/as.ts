@@ -2,7 +2,8 @@
 //  SPDX-License-Identifier: MIT
 
 import { CompletionItemKind } from 'vscode-languageserver-types';
-import { ScriptElementKind } from 'typescript';
+
+import { ScriptElementKind } from './ts-enums';
 
 /*
  * Copyright (C) 2018 TypeFox and others.
