@@ -46,7 +46,7 @@
       "parameterKind": "stringList",
       "shortName": "-v",
       "longName": "--version",
-      "description": "define publish version",
+      "description": "Specify publish version",
       "argumentName": "VERSION",
       "associatedCommands": ["pub"],
       "required": false
