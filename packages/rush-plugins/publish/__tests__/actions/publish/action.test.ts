@@ -11,6 +11,7 @@ import { logger } from '@coze-arch/logger';
 import { randomHash } from '@/utils/random';
 import { ensureNotUncommittedChanges, isMainBranch } from '@/utils/git';
 import { getRushConfiguration } from '@/utils/get-rush-config';
+import { release } from '@/action/release/action';
 import { generatePublishManifest } from '@/action/publish/version';
 import { BumpType, type PublishOptions } from '@/action/publish/types';
 import { pushToRemote } from '@/action/publish/push-to-remote';
@@ -31,6 +32,7 @@ vi.mock('@/action/publish/confirm');
 vi.mock('@/action/publish/changelog');
 vi.mock('@/action/publish/apply-new-version');
 vi.mock('@/action/publish/push-to-remote');
+vi.mock('@/action/release/action');
 
 describe('publish action', () => {
   const mockRushFolder = '/mock/rush';
@@ -120,7 +122,14 @@ describe('publish action', () => {
       ...options,
       sessionId: mockSessionId,
     });
-    expect(confirmForPublish).toHaveBeenCalledWith(mockPublishManifests, false);
+    expect(confirmForPublish).toHaveBeenCalledWith(
+      mockPublishManifests,
+      false,
+      {
+        isReleaseMode: false,
+        registry: 'https://registry.npmjs.org',
+      },
+    );
     expect(applyPublishManifest).toHaveBeenCalledWith(mockPublishManifests);
     expect(generateChangelog).toHaveBeenCalledWith(mockPublishManifests);
     expect(pushToRemote).toHaveBeenCalledWith({
@@ -170,6 +179,7 @@ describe('publish action', () => {
 
   it('should stop if not in main branch for production release', async () => {
     vi.mocked(isMainBranch).mockResolvedValue(false);
+    delete process.env.SKIP_BRANCH_CHECK;
     await publish({
       to: ['package-1'],
       repoUrl: 'git@github.com:example/repo.git',
@@ -178,6 +188,23 @@ describe('publish action', () => {
       'You are not in main branch, please switch to main branch and try again.',
     );
     expect(applyPublishManifest).not.toHaveBeenCalled();
+  });
+
+  it('should skip branch check when SKIP_BRANCH_CHECK is true', async () => {
+    vi.mocked(isMainBranch).mockResolvedValue(false);
+    process.env.SKIP_BRANCH_CHECK = 'true';
+
+    await publish({
+      to: ['package-1'],
+      repoUrl: 'git@github.com:example/repo.git',
+    });
+
+    expect(logger.error).not.toHaveBeenCalledWith(
+      'You are not in main branch, please switch to main branch and try again.',
+    );
+    expect(applyPublishManifest).toHaveBeenCalled();
+
+    delete process.env.SKIP_BRANCH_CHECK;
   });
 
   it('should allow non-main branch for beta releases', async () => {
@@ -297,6 +324,158 @@ describe('publish action', () => {
       repoUrl: 'git@github.com:example/repo.git',
       dryRun: true,
     });
-    expect(confirmForPublish).toHaveBeenCalledWith(mockPublishManifests, true);
+    expect(confirmForPublish).toHaveBeenCalledWith(mockPublishManifests, true, {
+      isReleaseMode: false,
+      registry: 'https://registry.npmjs.org',
+    });
+  });
+
+  describe('release mode', () => {
+    it('should skip uncommitted check when release is true', async () => {
+      vi.mocked(generatePublishManifest).mockResolvedValue({
+        manifests: mockPublishManifests,
+        bumpPolicy: BumpType.BETA,
+      });
+
+      await publish({
+        to: ['package-1'],
+        repoUrl: 'git@github.com:example/repo.git',
+        release: true,
+      });
+
+      expect(ensureNotUncommittedChanges).not.toHaveBeenCalled();
+    });
+
+    it('should call release function for beta version with release flag', async () => {
+      vi.mocked(generatePublishManifest).mockResolvedValue({
+        manifests: mockPublishManifests,
+        bumpPolicy: BumpType.BETA,
+      });
+
+      await publish({
+        to: ['package-1'],
+        repoUrl: 'git@github.com:example/repo.git',
+        release: true,
+        registry: 'https://custom-registry.com',
+      });
+
+      expect(release).toHaveBeenCalledWith({
+        dryRun: false,
+        registry: 'https://custom-registry.com',
+        packages: [
+          { packageName: 'package-1', version: '1.1.0' },
+          { packageName: 'package-2', version: '2.1.0' },
+        ],
+      });
+      expect(pushToRemote).not.toHaveBeenCalled();
+    });
+
+    it('should call release function for alpha version with release flag', async () => {
+      vi.mocked(generatePublishManifest).mockResolvedValue({
+        manifests: mockPublishManifests,
+        bumpPolicy: BumpType.ALPHA,
+      });
+
+      await publish({
+        to: ['package-1'],
+        repoUrl: 'git@github.com:example/repo.git',
+        release: true,
+        registry: 'https://registry.npmjs.org',
+      });
+
+      expect(release).toHaveBeenCalledWith({
+        dryRun: false,
+        registry: 'https://registry.npmjs.org',
+        packages: [
+          { packageName: 'package-1', version: '1.1.0' },
+          { packageName: 'package-2', version: '2.1.0' },
+        ],
+      });
+      expect(pushToRemote).not.toHaveBeenCalled();
+    });
+
+    it('should fall back to normal publish for production version with release flag', async () => {
+      vi.mocked(generatePublishManifest).mockResolvedValue({
+        manifests: mockPublishManifests,
+        bumpPolicy: BumpType.PATCH,
+      });
+
+      await publish({
+        to: ['package-1'],
+        repoUrl: 'git@github.com:example/repo.git',
+        release: true,
+      });
+
+      expect(logger.error).toHaveBeenCalledWith(
+        'Direct release (--release) is only allowed for alpha or beta versions.',
+      );
+      expect(logger.warn).toHaveBeenCalledWith(
+        'Falling back to normal publish mode...',
+      );
+      expect(release).not.toHaveBeenCalled();
+      expect(pushToRemote).toHaveBeenCalled();
+    });
+
+    it('should use default registry when registry is not provided', async () => {
+      vi.mocked(generatePublishManifest).mockResolvedValue({
+        manifests: mockPublishManifests,
+        bumpPolicy: BumpType.BETA,
+      });
+
+      await publish({
+        to: ['package-1'],
+        repoUrl: 'git@github.com:example/repo.git',
+        release: true,
+      });
+
+      expect(release).toHaveBeenCalledWith({
+        dryRun: false,
+        registry: 'https://registry.npmjs.org',
+        packages: expect.any(Array),
+      });
+    });
+
+    it('should pass isReleaseMode to confirmForPublish', async () => {
+      vi.mocked(generatePublishManifest).mockResolvedValue({
+        manifests: mockPublishManifests,
+        bumpPolicy: BumpType.BETA,
+      });
+
+      await publish({
+        to: ['package-1'],
+        repoUrl: 'git@github.com:example/repo.git',
+        release: true,
+        registry: 'https://custom-registry.com',
+      });
+
+      expect(confirmForPublish).toHaveBeenCalledWith(
+        mockPublishManifests,
+        false,
+        {
+          isReleaseMode: true,
+          registry: 'https://custom-registry.com',
+        },
+      );
+    });
+
+    it('should respect dryRun in release mode', async () => {
+      vi.mocked(generatePublishManifest).mockResolvedValue({
+        manifests: mockPublishManifests,
+        bumpPolicy: BumpType.ALPHA,
+      });
+
+      await publish({
+        to: ['package-1'],
+        repoUrl: 'git@github.com:example/repo.git',
+        release: true,
+        dryRun: true,
+      });
+
+      expect(release).toHaveBeenCalledWith({
+        dryRun: true,
+        registry: 'https://registry.npmjs.org',
+        packages: expect.any(Array),
+      });
+    });
   });
 });

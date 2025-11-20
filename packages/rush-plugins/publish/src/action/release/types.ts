@@ -4,9 +4,11 @@
 import { type RushConfigurationProject } from '@rushstack/rush-sdk';
 
 export interface ReleaseOptions {
-  commit: string;
+  commit?: string; // 可选，为空时使用当前 HEAD
   dryRun?: boolean;
   registry: string;
+  packages?: PackageToPublish[]; // 可选，直接传入需要发布的包列表
+  allowBranches?: string[]; // 可选，允许发布正式版本的分支列表
 }
 
 export interface PackageToPublish {
