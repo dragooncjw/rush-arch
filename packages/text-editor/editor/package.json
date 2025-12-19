@@ -32,6 +32,16 @@
       "require": "./dist/vscode.js",
       "import": "./dist/esm/vscode.js"
     },
+    "./vscode-search": {
+      "types": "./dist/vscode-search.d.ts",
+      "require": "./dist/vscode-search.js",
+      "import": "./dist/esm/vscode-search.js"
+    },
+    "./vscode-themes": {
+      "types": "./dist/vscode-themes.d.ts",
+      "require": "./dist/vscode-themes.js",
+      "import": "./dist/esm/vscode-themes.js"
+    },
     "./language-typescript": {
       "types": "./dist/language-typescript.d.ts",
       "require": "./dist/language-typescript.js",
@@ -67,6 +77,11 @@
       "require": "./dist/preset-universal.js",
       "import": "./dist/esm/preset-universal.js"
     },
+    "./preset-universal-code": {
+      "types": "./dist/preset-universal-code.d.ts",
+      "require": "./dist/preset-universal-code.js",
+      "import": "./dist/esm/preset-universal-code.js"
+    },
     "./preset-none": {
       "types": "./dist/preset-none.d.ts",
       "require": "./dist/preset-none.js",
@@ -91,6 +106,11 @@
       "types": "./dist/preset-code.d.ts",
       "require": "./dist/preset-code.js",
       "import": "./dist/esm/preset-code.js"
+    },
+    "./preset-code-languages": {
+      "types": "./dist/preset-code-languages.d.ts",
+      "require": "./dist/preset-code-languages.js",
+      "import": "./dist/esm/preset-code-languages.js"
     }
   },
   "main": "./dist/esm/index.js",
@@ -119,10 +139,12 @@
     "@coze-editor/extension-regexp-decorator": "workspace:*",
     "@coze-editor/extensions": "workspace:*",
     "@coze-editor/preset-code": "workspace:*",
+    "@coze-editor/preset-code-languages": "workspace:*",
     "@coze-editor/preset-expression": "workspace:*",
     "@coze-editor/preset-none": "workspace:*",
     "@coze-editor/preset-prompt": "workspace:*",
     "@coze-editor/preset-universal": "workspace:*",
+    "@coze-editor/preset-universal-code": "workspace:*",
     "@coze-editor/preset-variable": "workspace:*",
     "@coze-editor/react": "workspace:*",
     "@coze-editor/react-components": "workspace:*",
@@ -130,6 +152,8 @@
     "@coze-editor/react-merge": "workspace:*",
     "@coze-editor/utils": "workspace:*",
     "@coze-editor/vscode": "workspace:*",
+    "@coze-editor/vscode-search": "workspace:*",
+    "@coze-editor/vscode-themes": "workspace:*",
     "@coze-editor/vue": "workspace:*",
     "@coze-editor/vue-components": "workspace:*"
   },

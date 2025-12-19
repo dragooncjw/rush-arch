@@ -23,9 +23,8 @@
     "lint": "eslint && tsc --noEmit"
   },
   "dependencies": {
-    "@codemirror/search": "^6.5.5",
-    "@lezer/highlight": "~1.2.0",
-    "crelt": "^1.0.5"
+    "@coze-editor/vscode-search": "workspace:*",
+    "@coze-editor/vscode-themes": "workspace:*"
   },
   "devDependencies": {
     "@codemirror/state": "^6.4.1",

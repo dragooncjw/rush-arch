@@ -1,10 +1,10 @@
 //  Copyright (c) 2025 coze-dev
 //  SPDX-License-Identifier: MIT
 
-export { search } from './search';
+export { search } from '@coze-editor/vscode-search';
 export {
   darkTheme,
   darkSyntaxTheme,
   lightTheme,
   lightSyntaxTheme,
-} from './themes';
+} from '@coze-editor/vscode-themes';

@@ -22,7 +22,7 @@
     "lint": "eslint && tsc --noEmit"
   },
   "dependencies": {
-    "@codemirror/lang-python": "^6.1.4"
+    "@codemirror/lang-python": "^6.1.7"
   },
   "devDependencies": {
     "@codemirror/state": "^6.4.1",
