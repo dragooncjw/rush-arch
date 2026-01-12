@@ -1,40 +1,65 @@
 {
   "name": "@coze-arch/coze-design",
-  "version": "0.0.7",
+  "version": "0.0.7-alpha.fbd044",
   "description": "coze design system 2.0",
   "license": "MIT",
   "author": "289056872@qq.com",
   "maintainers": [],
+  "sideEffects": [
+    "**/*.less",
+    "**/*.css"
+  ],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts",
-      "types": "./src/index.ts"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
     },
-    "./icons": "./src/components/icon/index.ts",
-    "./illustrations": "./src/components/illustration/index.ts",
-    "./colors": "./src/components/colors/tokens/index.ts",
-    "./locales": "./src/locales/index.ts",
-    "./package.json": "./package.json"
+    "./icons": {
+      "import": "./dist/esm/components/icon/index.mjs",
+      "require": "./dist/cjs/components/icon/index.js",
+      "types": "./dist/types/components/icon/index.d.ts"
+    },
+    "./illustrations": {
+      "import": "./dist/esm/components/illustration/index.mjs",
+      "require": "./dist/cjs/components/illustration/index.js",
+      "types": "./dist/types/components/illustration/index.d.ts"
+    },
+    "./colors": {
+      "import": "./dist/esm/components/colors/tokens/index.mjs",
+      "require": "./dist/cjs/components/colors/tokens/index.js",
+      "types": "./dist/types/components/colors/tokens/index.d.ts"
+    },
+    "./locales": {
+      "import": "./dist/esm/locales/index.mjs",
+      "require": "./dist/cjs/locales/index.js",
+      "types": "./dist/types/locales/index.d.ts"
+    },
+    "./index.css": "./dist/esm/index.css",
+    "./types": "./dist/types/index.d.ts"
   },
-  "main": "src/index.ts",
-  "module": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
   "typesVersions": {
     "*": {
-      "colors": [
-        "./src/components/colors/tokens/index.ts"
+      ".": [
+        "./dist/types/index.d.ts"
       ],
       "icons": [
-        "./src/components/icon/index.ts"
+        "./dist/types/components/icon/index.d.ts"
       ],
       "illustrations": [
-        "./src/components/illustration/index.ts"
+        "./dist/types/components/illustration/index.d.ts"
+      ],
+      "colors": [
+        "./dist/types/components/colors/tokens/index.d.ts"
       ],
       "locales": [
-        "./src/locales/index.ts"
+        "./dist/types/locales/index.d.ts"
       ],
-      "package.json": [
-        "./package.json"
+      "types": [
+        "./dist/types/index.d.ts"
       ]
     }
   },
@@ -58,9 +83,9 @@
     "test:cov": "npm run test -- --coverage"
   },
   "dependencies": {
-    "@coze-arch/arco-icon": "workspace:*",
-    "@coze-arch/arco-illustration": "workspace:*",
-    "@douyinfe/semi-ui": "~2.72.3",
+    "@coze-arch/arco-icon": "0.0.109-alpha.fbd044",
+    "@coze-arch/arco-illustration": "0.0.13-alpha.fbd044",
+    "@douyinfe/semi-ui": "~2.90.9",
     "ahooks": "^3.7.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",

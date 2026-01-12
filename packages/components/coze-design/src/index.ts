@@ -306,6 +306,8 @@ export {
   Button as SemiButton,
   Select as SemiSelect,
   Cascader as SemiCascader,
+  AudioPlayer,
+  VideoPlayer,
 } from './components/semi';
 
 /*原生semi props 透传*/
@@ -380,6 +382,10 @@ export type {
   FileItemStatus,
   OverflowItem,
   RenderFullLabelProps,
+  AudioPlayerProps,
+  AudioPlayerState,
+  VideoPlayerProps,
+  VideoPlayerState,
 } from './components/semi/types';
 
 /*原生semi locale*/

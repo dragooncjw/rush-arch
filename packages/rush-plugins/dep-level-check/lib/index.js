@@ -132,6 +132,9 @@ const logger = {
   },
 };
 
+//  Copyright (c) 2025 coze-dev
+//  SPDX-License-Identifier: MIT
+
 function isValidLevel(v) {
   return Number.isInteger(v);
 }
@@ -204,5 +207,8 @@ class RushDepLevelPlugin {
     });
   }
 }
+
+//  Copyright (c) 2025 coze-dev
+//  SPDX-License-Identifier: MIT
 
 module.exports = RushDepLevelPlugin;

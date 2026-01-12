@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@coze-editor/extension-completion-icons",
+      "comment": "upgrade semi to 2.90.9",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@coze-editor/extension-completion-icons",
+  "email": "289056872@qq.com"
+}

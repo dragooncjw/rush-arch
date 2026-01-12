@@ -86,6 +86,8 @@ export {
   LocaleConsumer,
   Image,
   ImagePreview,
+  AudioPlayer,
+  VideoPlayer,
 } from '@douyinfe/semi-ui';
 
 export {

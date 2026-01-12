@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@coze-arch/rush-dep-level-check-plugin",
+      "comment": "upgrade semi to 2.90.9",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@coze-arch/rush-dep-level-check-plugin",
+  "email": "289056872@qq.com"
+}

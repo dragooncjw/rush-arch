@@ -30,6 +30,14 @@ export type {
   OnFilter,
   RowSelection,
 } from '@douyinfe/semi-ui/lib/es/table/index.js';
+export type {
+  AudioPlayerProps,
+  AudioPlayerState,
+} from '@douyinfe/semi-ui/lib/es/audioPlayer/index.js';
+export type {
+  VideoPlayerProps,
+  VideoPlayerState,
+} from '@douyinfe/semi-ui/lib/es/videoPlayer/index.js';
 export type { CollapsibleProps } from '@douyinfe/semi-ui/lib/es/collapsible/index.js';
 export type { CollapseReactProps } from '@douyinfe/semi-ui/lib/es/collapse/index.js';
 export type { DividerProps } from '@douyinfe/semi-ui/lib/es/divider/index.js';
