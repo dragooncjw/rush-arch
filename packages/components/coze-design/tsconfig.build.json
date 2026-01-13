@@ -30,12 +30,6 @@
   "include": ["src"],
   "references": [
     {
-      "path": "../arco-icon/tsconfig.build.json"
-    },
-    {
-      "path": "../arco-illustration/tsconfig.build.json"
-    },
-    {
       "path": "../../../config/eslint-config/tsconfig.build.json"
     },
     {

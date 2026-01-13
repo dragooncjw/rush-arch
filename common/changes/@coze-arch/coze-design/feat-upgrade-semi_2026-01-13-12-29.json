@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@coze-arch/coze-design",
+      "comment": "upgrade semi to 2.90.13",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@coze-arch/coze-design",
+  "email": "289056872@qq.com"
+}
