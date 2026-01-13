@@ -85,7 +85,7 @@
   "dependencies": {
     "@coze-arch/arco-icon": "0.0.109-alpha.fbd044",
     "@coze-arch/arco-illustration": "0.0.13-alpha.fbd044",
-    "@douyinfe/semi-ui": "~2.90.9",
+    "@douyinfe/semi-ui": "~2.90.12",
     "ahooks": "^3.7.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
