@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@coze-arch/arco-icon",
+      "comment": "兼容fornax react17",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@coze-arch/arco-icon",
+  "email": "chenjiawei.inizio@bytedance.com"
+}

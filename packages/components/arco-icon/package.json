@@ -30,8 +30,8 @@
     "@coze-arch/ts-config": "workspace:*",
     "@rsbuild/plugin-react": "^1.1.1",
     "@rslib/core": "^0.16.0",
-    "@types/react": "18.2.37",
-    "react": "~18.2.0",
+    "@types/react": "^17.0.2",
+    "react": "^17.0.2",
     "typescript": "^5.8.2"
   },
   "peerDependencies": {

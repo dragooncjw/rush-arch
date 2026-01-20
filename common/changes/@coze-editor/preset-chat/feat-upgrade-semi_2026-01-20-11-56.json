@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@coze-editor/preset-chat",
+      "comment": "兼容fornax react17",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@coze-editor/preset-chat",
+  "email": "chenjiawei.inizio@bytedance.com"
+}
