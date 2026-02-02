@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@coze-arch/arco-icon",
+      "comment": "save",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@coze-arch/arco-icon",
+  "email": "chenjiawei.inizio@bytedance.com"
+}

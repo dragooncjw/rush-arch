@@ -2,6 +2,7 @@
 //  SPDX-License-Identifier: MIT
 
 /* eslint-disable complexity */
+import ReactDOM from 'react-dom';
 import React, {
   forwardRef,
   useEffect,
@@ -10,7 +11,6 @@ import React, {
   useState,
 } from 'react';
 
-import { type Root, createRoot } from 'react-dom/client';
 import { assign, omit } from 'lodash-es';
 import clsx from 'clsx';
 import { useSize } from 'ahooks';
@@ -31,6 +31,7 @@ import { Indicator } from './table-indicator';
 import { TableAction } from './table-action';
 
 import './index.css';
+
 export const TableComponent = forwardRef<TableMethods, TableProps>(
   (
     {
@@ -71,7 +72,7 @@ export const TableComponent = forwardRef<TableMethods, TableProps>(
     /**
      * TODO：处理触底加载，一坨💩，待优化
      */
-    const IndicatorRoot = useRef<Root>();
+    const IndicatorRootRef = useRef<HTMLDivElement | null>(null);
 
     const tableRef = useRef(null);
     const onLoadRef = useRef(onLoad);
@@ -120,31 +121,32 @@ export const TableComponent = forwardRef<TableMethods, TableProps>(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (tableRef.current as any).tableRef.current.bodyWrapRef.current;
 
-        if (enableLoad) {
-          if (!indicatorFlag.current) {
-            const f = document.createElement('div');
+        if (enableLoad && !indicatorFlag.current) {
+          const f = document.createElement('div');
+          tableContainer.append(f);
+          IndicatorRootRef.current = f;
 
-            tableContainer.append(f);
+          ReactDOM.render(
+            <Indicator
+              loadedText={i18n.t('loaded')}
+              loadingText={i18n.t('loading')}
+              ref={indicatorRef}
+              onIntersecting={intersecting => {
+                if (intersecting && needLoadRef.current) {
+                  onLoadRef.current?.();
+                }
+              }}
+            />,
+            f,
+          );
 
-            IndicatorRoot.current = createRoot(f);
-            IndicatorRoot.current.render(
-              <Indicator
-                loadedText={i18n.t('loaded')}
-                loadingText={i18n.t('loading')}
-                ref={indicatorRef}
-                onIntersecting={intersecting => {
-                  if (intersecting && needLoadRef.current) {
-                    onLoadRef.current?.();
-                  }
-                }}
-              />,
-            );
-            indicatorFlag.current = true;
-          }
+          indicatorFlag.current = true;
         }
       } else {
         return () => {
-          IndicatorRoot.current?.unmount();
+          if (IndicatorRootRef.current) {
+            ReactDOM.unmountComponentAtNode(IndicatorRootRef.current);
+          }
           needLoadRef.current = true;
           indicatorFlag.current = false;
         };
@@ -162,7 +164,9 @@ export const TableComponent = forwardRef<TableMethods, TableProps>(
             tableScrollContainer.scrollTop = 0;
           }
           delayClear.current = true;
-          IndicatorRoot.current?.unmount();
+          if (IndicatorRootRef.current) {
+            ReactDOM.unmountComponentAtNode(IndicatorRootRef.current);
+          }
           indicatorFlag.current = false;
         },
         getTableList: () => innerData,
