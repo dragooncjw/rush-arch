@@ -86,6 +86,7 @@ export {
   LocaleConsumer,
   Image,
   ImagePreview,
+  semiGlobal,
 } from '@douyinfe/semi-ui';
 
 export {
