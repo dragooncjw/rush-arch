@@ -83,8 +83,8 @@
     "test:cov": "npm run test -- --coverage"
   },
   "dependencies": {
-    "@coze-arch/arco-icon": "0.0.109-alpha.197bf0",
-    "@coze-arch/arco-illustration": "0.0.13-alpha.197bf0",
+    "@coze-arch/arco-icon": "workspace:*",
+    "@coze-arch/arco-illustration": "workspace:*",
     "@douyinfe/semi-ui": "2.90.13",
     "ahooks": "^3.7.8",
     "class-variance-authority": "^0.7.0",
